@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="icon" type="image/svg+xml" href="/static/icon.svg">
+<title>SkillSync | Sign In</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#8f4700",
+              "on-secondary-fixed-variant": "#3e446b",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#713700",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb784",
+              "secondary-fixed": "#dee0ff",
+              "on-secondary-container": "#51577f",
+              "surface": "#fbf8ff",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#2c3c9e",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#bbc3ff",
+              "surface-variant": "#e3e1ea",
+              "on-background": "#1a1b22",
+              "secondary-fixed-dim": "#bec4f2",
+              "outline-variant": "#c5c5d4",
+              "on-primary-fixed": "#000e5e",
+              "surface-container-high": "#e9e7f0",
+              "background": "#fbf8ff",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#301400",
+              "secondary-container": "#c9cffd",
+              "inverse-on-surface": "#f2eff9",
+              "outline": "#757684",
+              "primary": "#27389a",
+              "inverse-primary": "#bbc3ff",
+              "surface-bright": "#fbf8ff",
+              "on-tertiary-container": "#ffc7a2",
+              "secondary": "#565c84",
+              "tertiary-fixed": "#ffdcc6",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#dee0ff",
+              "on-surface-variant": "#454652",
+              "inverse-surface": "#2f3037",
+              "surface-container-highest": "#e3e1ea",
+              "tertiary": "#6c3400",
+              "surface-dim": "#dbd9e2",
+              "surface-container": "#efedf6",
+              "primary-container": "#4151b3",
+              "on-primary-container": "#cacfff",
+              "on-surface": "#1a1b22",
+              "surface-container-low": "#f4f2fc",
+              "on-secondary-fixed": "#12183d",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#4555b7"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .luxury-shadow {
+            box-shadow: 0px 24px 48px -12px rgba(44, 60, 158, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Subtle Background Texture -->
+<div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-fixed-dim/20 via-surface to-surface"></div>
+<main class="flex-grow flex items-center justify-center px-6 py-20">
+<div class="w-full max-w-[450px] space-y-8">
+<!-- Brand & Identity -->
+<div class="text-center space-y-4">
+<div class="inline-flex items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm mb-2">
+<span class="text-4xl font-headline font-black text-primary tracking-tighter">SkillSync</span>
+</div>
+<h1 class="text-3xl font-headline font-bold text-on-surface tracking-tight">Welcome to SkillSync</h1>
+<p class="text-on-surface-variant text-sm font-medium">The Intelligent Exchange for expert skills</p>
+</div>
+<!-- Login Container -->
+<div class="bg-surface-container-lowest luxury-shadow rounded-xl p-8 md:p-10 border border-outline-variant/10">
+
+{% if error %}
+<div class="mb-6 p-4 text-sm text-error bg-error-container rounded-lg border border-error/20" role="alert">
+  <span class="font-bold">Error!</span> {{ error }}
+</div>
+{% endif %}
+
+<form action="/login" method="POST" class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant ml-1" for="email">Username</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-highest border-none rounded-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary-fixed-dim transition-all duration-200" id="email" name="email" placeholder="Enter your username" type="text" required/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant ml-1" for="password">Password</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-highest border-none rounded-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary-fixed-dim transition-all duration-200" id="password" name="password" placeholder="Enter your password" type="password" required/>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between text-sm">
+<label class="flex items-center space-x-2 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary-fixed-dim bg-surface" type="checkbox"/>
+</div>
+<span class="text-on-surface-variant group-hover:text-on-surface transition-colors">Remember Me</span>
+</label>
+<a class="text-primary font-semibold hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Primary Action -->
+<button class="w-full py-3.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-sm uppercase tracking-widest rounded-md shadow-md active:scale-[0.98] transition-all duration-200" type="submit">
+                        Sign In
+                    </button>
+<!-- Divider -->
+<div class="relative py-4">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+</div>
+<div class="relative flex justify-center text-xs">
+<span class="bg-surface-container-lowest px-4 text-outline font-bold tracking-widest uppercase">OR CONTINUE WITH</span>
+</div>
+</div>
+<!-- Social Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center space-x-2 px-4 py-3 bg-surface border border-outline-variant/20 rounded-md hover:bg-surface-container-low transition-colors group" type="button">
+<img alt="Google" class="w-5 h-5 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-RidYrNy97TPjt--V7URHewZPi98TaAfLD6p9d8qIwEFOvqTZINHkaZ1w3MrEAsj9XFyhpSgmKRlddt9cR67-JnhtD0Z9mn3q_YAlHS7kpVJAvuRFhR8acmhh7FrcblMQxVSLUA3ftjUD_GGV0aFc0JAoEo2ua6lL30ZN2ohum_zLchVPPVNq1vlxsSH0UzPad4cKAHw9abc6Lfpdym_etZ3ariq3HV5GkzBIQbysI5bJqcYbdvFHgLKeya7NCuh9FR_8FHEeBLm6"/>
+<span class="text-sm font-semibold text-on-surface-variant">Google</span>
+</button>
+<button class="flex items-center justify-center space-x-2 px-4 py-3 bg-surface border border-outline-variant/20 rounded-md hover:bg-surface-container-low transition-colors group" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-sm font-semibold text-on-surface-variant">LinkedIn</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Footer Navigation -->
+<div class="text-center">
+<p class="text-on-surface-variant text-sm">
+                    Don't have an account? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4 ml-1 transition-all" href="#">Sign Up</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Contextual Footer -->
+<footer class="w-full mt-auto">
+<div class="max-w-7xl mx-auto px-8 py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 border-t border-outline-variant/20">
+<p class="font-body text-xs text-on-surface-variant">© 2024 SkillSync. All rights reserved.</p>
+<div class="flex space-x-8">
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>
